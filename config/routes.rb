@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Artist resource:
+
+  # CREATE
+  get("/artists/new", { :controller => "artists", :action => "new_form" })
+  post("/create_artist", { :controller => "artists", :action => "create_row" })
+
+  # READ
+  get("/artists", { :controller => "artists", :action => "index" })
+  get("/artists/:id_to_display", { :controller => "artists", :action => "show" })
+
+  # UPDATE
+  get("/artists/:prefill_with_id/edit", { :controller => "artists", :action => "edit_form" })
+  post("/update_artist/:id_to_modify", { :controller => "artists", :action => "update_row" })
+
+  # DELETE
+  get("/delete_artist/:id_to_remove", { :controller => "artists", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Album resource:
 
   # CREATE
