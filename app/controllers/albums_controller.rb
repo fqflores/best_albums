@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    @albums = Album.page(params[:page]).per(10)
 
     render("album_templates/index.html.erb")
   end
