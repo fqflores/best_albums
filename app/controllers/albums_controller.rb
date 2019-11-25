@@ -59,6 +59,14 @@ class AlbumsController < ApplicationController
     end
   end
 
+  def destroy_row_from_director
+    @album = Album.find(params.fetch("id_to_remove"))
+
+    @album.destroy
+
+    redirect_to("/artists/#{@album.artist_id}", notice: "Album deleted successfully.")
+  end
+
   def destroy_row
     @album = Album.find(params.fetch("id_to_remove"))
 

@@ -55,6 +55,22 @@ class RatingsController < ApplicationController
     end
   end
 
+  def destroy_row_from_album
+    @rating = Rating.find(params.fetch("id_to_remove"))
+
+    @rating.destroy
+
+    redirect_to("/albums/#{@rating.album_id}", notice: "Rating deleted successfully.")
+  end
+
+  def destroy_row_from_user
+    @rating = Rating.find(params.fetch("id_to_remove"))
+
+    @rating.destroy
+
+    redirect_to("/users/#{@rating.user_id}", notice: "Rating deleted successfully.")
+  end
+
   def destroy_row
     @rating = Rating.find(params.fetch("id_to_remove"))
 
