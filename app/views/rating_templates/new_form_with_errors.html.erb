@@ -1,0 +1,68 @@
+<!-- Validation failure messages -->
+<% if @rating.present? %>
+  <% if @rating.errors.any? %>
+    <% @rating.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new rating
+</h1>
+
+
+<hr>
+
+<!-- Form rating start -->
+<form action="/create_rating" method="post">
+<!-- Form rating end -->
+
+  <!-- Label and input for album_id start -->
+  <div class="form-group">
+    <label for="album_id">
+      Album
+    </label>
+
+    <!-- Input for album_id start -->
+    <input type="text" id="album_id" name="album_id" class="form-control" value="<%= @rating.album_id %>">
+    <!-- Input for album_id end -->
+  </div>
+  <!-- Label and input for album_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @rating.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <label for="rating">
+      Rating
+    </label>
+
+    <!-- Input for rating start -->
+    <input type="text" id="rating" name="rating" class="form-control" value="<%= @rating.rating %>">
+    <!-- Input for rating end -->
+  </div>
+  <!-- Label and input for rating end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create rating
+  </button>
+</form>
+
+<hr>
+
+<a href="/ratings">
+  Go back
+</a>
