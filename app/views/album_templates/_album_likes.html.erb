@@ -10,28 +10,22 @@
   <ul class="list-group list-group-flush">
     <% @album.likes.each do |rating| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/ratings/<%= rating.id %>">
           <%= rating.rating %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%if current_user == rating.user %>
           <a href="/delete_rating_from_album/<%= rating.id %>">
             Delete
           </a>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="album_likes_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "album_templates/album_likes_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

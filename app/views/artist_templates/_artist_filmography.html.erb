@@ -10,26 +10,20 @@
   <ul class="list-group list-group-flush">
     <% @artist.filmography.each do |album| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/albums/<%= album.id %>">
           <%= album.title %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <a href="/delete_album_from_director/<%= album.id %>">
           Delete
         </a>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="artist_filmography_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "artist_templates/artist_filmography_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

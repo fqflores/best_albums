@@ -11,76 +11,60 @@
         </a>
       </div>
 
-      <!-- Edit link artist start -->
       <div class="col">
         <a href="/artists/<%= @artist.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit artist
         </a>
       </div>
-      <!-- Edit link artist end -->
 
-      <!-- Delete link artist start -->
       <div class="col">
         <a href="/delete_artist/<%= @artist.id %>" class="btn btn-block btn-outline-secondary">
           Delete artist
         </a>
       </div>
-      <!-- Delete link artist end -->
     </div>
 
     <dl>
       <dt>
         Name
       </dt>
-      <!-- Display name start -->
       <dd>
         <%= @artist.name %>
       </dd>
-      <!-- Display name end -->
 
       <dt>
         Bio
       </dt>
-      <!-- Display bio start -->
       <dd>
         <%= @artist.bio %>
       </dd>
-      <!-- Display bio end -->
 
       <dt>
         Image
       </dt>
-      <!-- Display image start -->
       <dd>
         <%= @artist.image %>
       </dd>
-      <!-- Display image end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@artist.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@artist.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
 <div class="row mb-3">
   <div class="col-md-8 offset-md-2">
     <%= render partial: "artist_templates/artist_filmography" %>
   </div>
 </div>
-<!-- Show Page Customization end -->

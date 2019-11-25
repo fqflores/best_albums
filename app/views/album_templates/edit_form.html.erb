@@ -4,69 +4,47 @@
 
 <hr>
 
-<!-- Form album start -->
 <form action="/update_album/<%= @album.id %>" method="post">
-<!-- Form album end -->
 
-  <!-- Label and input for title start -->
   <div class="form-group">
     <label for="title">
       Title
     </label>
 
-    <!-- Input for title start -->
     <input type="text" id="title" name="title" class="form-control" value="<%= @album.title %>">
-    <!-- Input for title end -->
   </div>
-  <!-- Label and input for title end -->
 
-  <!-- Label and input for year start -->
   <div class="form-group">
     <label for="year">
       Year
     </label>
 
-    <!-- Input for year start -->
     <input type="text" id="year" name="year" class="form-control" value="<%= @album.year %>">
-    <!-- Input for year end -->
   </div>
-  <!-- Label and input for year end -->
 
-  <!-- Label and input for image start -->
   <div class="form-group">
     <label for="image">
       Image
     </label>
 
-    <!-- Input for image start -->
     <input type="text" id="image" name="image" class="form-control" value="<%= @album.image %>">
-    <!-- Input for image end -->
   </div>
-  <!-- Label and input for image end -->
 
-  <!-- Label and input for artist_id start -->
   <div class="form-group">
     <label for="artist_id">
       Artist
     </label>
 
-    <!-- Input for artist_id start -->
     <%= select_tag(:artist_id, options_from_collection_for_select(Artist.all, :id, :name, @album.artist_id), :class => "form-control") %>
-    <!-- Input for artist_id end -->
   </div>
-  <!-- Label and input for artist_id end -->
 
-  <!-- Label and input for genre start -->
   <div class="form-group">
     <label for="genre">
       Genre
     </label>
 
-    <!-- Input for genre start -->
     <input type="text" id="genre" name="genre" class="form-control" value="<%= @album.genre %>">
-    <!-- Input for genre end -->
   </div>
-  <!-- Label and input for genre end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Update album
