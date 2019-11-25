@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   def index
-    @albums = Album.page(params[:page]).per(10)
+    @q = Album.ransack(params[:q])
+    @albums = @q.result(:distinct => true).includes(:likes, :director).page(params[:page]).per(10)
 
     render("album_templates/index.html.erb")
   end

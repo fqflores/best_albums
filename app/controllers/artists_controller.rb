@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.page(params[:page]).per(10)
+    @q = Artist.ransack(params[:q])
+    @artists = @q.result(:distinct => true).includes(:filmography).page(params[:page]).per(10)
 
     render("artist_templates/index.html.erb")
   end
