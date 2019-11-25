@@ -6,6 +6,7 @@ class AlbumsController < ApplicationController
   end
 
   def show
+    @rating = Rating.new
     @album = Album.find(params.fetch("id_to_display"))
 
     render("album_templates/show.html.erb")
@@ -30,6 +31,24 @@ class AlbumsController < ApplicationController
       @album.save
 
       redirect_back(:fallback_location => "/albums", :notice => "Album created successfully.")
+    else
+      render("album_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_artist
+    @album = Album.new
+
+    @album.title = params.fetch("title")
+    @album.year = params.fetch("year")
+    @album.image = params.fetch("image")
+    @album.artist_id = params.fetch("artist_id")
+    @album.genre = params.fetch("genre")
+
+    if @album.valid?
+      @album.save
+
+      redirect_to("/artists/#{@album.artist_id}", notice: "Album created successfully.")
     else
       render("album_templates/new_form_with_errors.html.erb")
     end

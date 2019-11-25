@@ -1,0 +1,37 @@
+<!-- Form rating start -->
+<form action="/create_rating_from_album" method="post">
+<!-- Form rating end -->
+
+  <!-- Label and input for album_id start -->
+  <!-- Input for album_id start -->
+  <input type="hidden" name="album_id" value="<%= @album.id %>">
+  <!-- Input for album_id end -->
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @rating.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for rating start -->
+  <div class="form-group">
+    <label for="rating">
+      Rating
+    </label>
+
+    <!-- Input for rating start -->
+    <input type="text" id="rating" name="rating" class="form-control" value="<%= @rating.rating %>">
+    <!-- Input for rating end -->
+  </div>
+  <!-- Label and input for rating end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create rating
+  </button>
+</form>

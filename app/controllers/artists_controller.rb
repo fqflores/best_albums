@@ -6,6 +6,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    @album = Album.new
     @artist = Artist.find(params.fetch("id_to_display"))
 
     render("artist_templates/show.html.erb")
