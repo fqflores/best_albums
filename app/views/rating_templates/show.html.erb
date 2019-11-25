@@ -38,7 +38,11 @@
       </dt>
       <!-- Display album_id start -->
       <dd>
-        <%= @rating.album_id %>
+        <% if @rating.album.present? %>
+          <a href="/albums/<%= @rating.album_id %>">
+            <%= @rating.album.title %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display album_id end -->
 
@@ -47,7 +51,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @rating.user_id %>
+        <% if @rating.user.present? %>
+          <a href="/users/<%= @rating.user_id %>">
+            <%= @rating.user.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 

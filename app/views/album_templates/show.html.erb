@@ -61,7 +61,11 @@
       </dt>
       <!-- Display artist_id start -->
       <dd>
-        <%= @album.artist_id %>
+        <% if @album.director.present? %>
+          <a href="/artists/<%= @album.artist_id %>">
+            <%= @album.director.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display artist_id end -->
 
