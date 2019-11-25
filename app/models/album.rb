@@ -5,6 +5,8 @@ class Album < ApplicationRecord
 
   # Validations
 
+  validates :artist_id, :presence => true
+
   validates :title, :presence => true
 
 end
