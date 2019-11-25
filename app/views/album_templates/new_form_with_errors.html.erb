@@ -63,7 +63,7 @@
     </label>
 
     <!-- Input for artist_id start -->
-    <input type="text" id="artist_id" name="artist_id" class="form-control" value="<%= @album.artist_id %>">
+    <%= select_tag(:artist_id, options_from_collection_for_select(Artist.all, :id, :name, @album.artist_id), :class => "form-control") %>
     <!-- Input for artist_id end -->
   </div>
   <!-- Label and input for artist_id end -->
